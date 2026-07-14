@@ -299,7 +299,7 @@ Full Stack       ░░░░░░░░░░ 0%
 
 Building projects, learning continuously, and becoming a better developer every day.
 
-#Reusable Content 
+# Reusable Content 
 ### ICONS
 ```
 <script src="https://kit.fontawesome.com/b160e75569.js"></script>
