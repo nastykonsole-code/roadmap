@@ -1,8 +1,8 @@
-# 🚀 Full-Stack Developer Roadmap
+# 🚀 Full-Stack Developer Journey
 
-A structured roadmap for learning and mastering modern web development technologies through **hands-on projects**.
+A structured roadmap documenting my journey from frontend fundamentals to building complete full-stack applications.
 
-This repository contains my progress as I build projects while learning:
+This repository contains my progress, experiments, and projects while learning:
 
 - HTML & CSS
 - JavaScript
@@ -10,9 +10,9 @@ This repository contains my progress as I build projects while learning:
 - Python
 - Backend Development
 - Databases
-- Full-Stack Applications
+- Full-Stack Architecture
 
-The goal is to move from frontend fundamentals to building complete production-ready applications.
+The goal is to build real-world applications while understanding the concepts, technologies, and architecture behind them.
 
 ---
 
@@ -22,7 +22,7 @@ The goal is to move from frontend fundamentals to building complete production-r
 
 Building strong frontend foundations.
 
-Projects:
+### Projects
 
 - ✅ Personal Profile Page
 - ✅ Landing Page
@@ -30,12 +30,13 @@ Projects:
 - ✅ Login Form
 - ✅ Restaurant Menu
 - ✅ Blog Layout
-- Responsive Navigation Bar
-- Dashboard Layout
-- Photo Gallery
-- CSS Grid Magazine
+- ⬜ Responsive Navigation Bar
+- ⬜ Dashboard Layout
+- ⬜ Photo Gallery
+- ⬜ CSS Grid Magazine
 
-Skills:
+### Skills
+
 - Semantic HTML
 - CSS fundamentals
 - Flexbox
@@ -48,9 +49,9 @@ Skills:
 
 # ⚡ Stage 2 — JavaScript (12 Projects)
 
-Adding logic and interactivity to websites.
+Adding logic, interactivity, and dynamic functionality.
 
-Projects:
+### Projects
 
 - Counter
 - Stopwatch
@@ -65,7 +66,8 @@ Projects:
 - Tic-Tac-Toe
 - Simon Game
 
-Skills:
+### Skills
+
 - JavaScript fundamentals
 - DOM manipulation
 - Events
@@ -78,9 +80,9 @@ Skills:
 
 # 🔥 Stage 3 — Intermediate JavaScript (10 Projects)
 
-Learning more complex application logic.
+Building more complex applications and improving problem-solving skills.
 
-Projects:
+### Projects
 
 - Kanban Board
 - Expense Tracker
@@ -93,7 +95,8 @@ Projects:
 - Sorting Visualizer
 - Music Player
 
-Skills:
+### Skills
+
 - APIs
 - Async programming
 - Drag & drop
@@ -104,9 +107,9 @@ Skills:
 
 # ⚛️ Stage 4 — React (10 Projects)
 
-Learning modern frontend development.
+Learning modern frontend architecture.
 
-Projects:
+### Projects
 
 - To-Do App
 - Shopping List
@@ -119,7 +122,8 @@ Projects:
 - Recipe App
 - Employee Directory
 
-Skills:
+### Skills
+
 - Components
 - Props
 - State
@@ -131,9 +135,9 @@ Skills:
 
 # 🚀 Stage 5 — Advanced React (8 Projects)
 
-Building larger frontend applications.
+Creating larger and more scalable frontend applications.
 
-Projects:
+### Projects
 
 - Authentication UI
 - Kanban App
@@ -144,11 +148,12 @@ Projects:
 - Google Keep Clone
 - Portfolio CMS
 
-Skills:
+### Skills
+
 - Advanced state management
 - Authentication flows
-- Complex application structure
-- Scalable frontend architecture
+- Large application structure
+- Scalable architecture
 
 ---
 
@@ -156,7 +161,7 @@ Skills:
 
 Learning programming fundamentals and automation.
 
-Projects:
+### Projects
 
 - Number Guessing Game
 - Contact Book
@@ -167,7 +172,8 @@ Projects:
 - Image Resizer
 - PDF Merger
 
-Skills:
+### Skills
+
 - Python fundamentals
 - File I/O
 - Automation
@@ -178,9 +184,9 @@ Skills:
 
 # ⚙️ Stage 7 — Backend Development (8 Projects)
 
-Learning how applications work behind the scenes.
+Understanding how applications work behind the scenes.
 
-Projects:
+### Projects
 
 - REST API
 - Notes API
@@ -191,7 +197,8 @@ Projects:
 - File Upload API
 - Task Manager API
 
-Skills:
+### Skills
+
 - CRUD operations
 - Authentication
 - Validation
@@ -204,16 +211,16 @@ Skills:
 
 Learning databases through real applications.
 
-Projects:
+### Projects
 
-- Notes App Database
+- Notes Database
 - Blog Database
 - Inventory Database
 - Expense Tracker Database
 - Restaurant Database
 - Authentication Database
 
-Skills:
+### Skills
 
 - Database relationships
 - SQL queries
@@ -224,11 +231,11 @@ Skills:
 
 ---
 
-# 🌐 Stage 9 — Full Stack Applications (8 Projects)
+# 🌐 Stage 9 — Full-Stack Applications (8 Projects)
 
 Combining everything into complete applications.
 
-Projects:
+### Projects
 
 - Notes App
 - Expense Tracker
@@ -239,7 +246,7 @@ Projects:
 - Restaurant Finder
 - Food Delivery App
 
-Skills:
+### Skills
 
 - Frontend + Backend integration
 - Authentication
@@ -253,36 +260,53 @@ Skills:
 # 🛠️ Technologies
 
 ## Frontend
+
 - HTML5
 - CSS3
 - JavaScript
 - React
 
 ## Backend
+
 - Python
 - REST APIs
 
 ## Database
+
 - SQL
-- Database design
+- Database Design
 
 ## Tools
+
 - Git
 - GitHub
 - Linux
 
 ---
 
-# 🎯 Goal
+# 📂 Repository Structure
 
-Become a full-stack developer capable of designing, building, and deploying complete applications while understanding the technology behind them.
+```
+vault/
+│
+├── Stage 1/
+│   ├── Landing_Page/
+│   ├── Blog_Layout/
+│   ├── Restaurant_Menu/
+│   └── ...
+│
+├── Stage 2/
+│   └── JavaScript Projects
+│
+└── README.md
+```
 
 ---
 
 # 📊 Progress
 
 ```
-HTML & CSS       ████████░░ 60%
+HTML & CSS       ██████░░░░ 60%
 JavaScript       ░░░░░░░░░░ 0%
 React            ░░░░░░░░░░ 0%
 Python           ░░░░░░░░░░ 0%
@@ -293,19 +317,31 @@ Full Stack       ░░░░░░░░░░ 0%
 
 ---
 
+# 🎯 Goal
+
+Become a full-stack developer capable of designing, building, and deploying complete applications while understanding the technology behind them.
+
+---
+
 # 👨‍💻 Author
 
-**Adrian (@nastykonsole)**
+**Adrian**
 
-Building projects, learning continuously, and becoming a better developer every day.
+Building projects, learning continuously, and improving every day.
 
-# Reusable Content 
-### ICONS
-```
+---
+
+# 🔗 Reusable Resources
+
+## Icons
+
+```html
 <script src="https://kit.fontawesome.com/b160e75569.js"></script>
 ```
-### Fonts
-```
+
+## Fonts
+
+```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
