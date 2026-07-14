@@ -53,7 +53,7 @@ Adding logic, interactivity, and dynamic functionality.
 
 ### Projects
 
-- Counter
+-✅ Counter
 - Stopwatch
 - Calculator
 - To-Do List
