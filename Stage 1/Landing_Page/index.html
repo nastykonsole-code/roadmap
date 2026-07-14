@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee shop</title>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <style>
+      * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fffaf3;
+    color: #56321b;
+    font-family: 'Google Sans', sans-serif;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    height: 400px;
+    width: 100%;
+
+    background: linear-gradient(
+        110deg,
+        #f7e7cf 0%,
+        #f2c98d 45%,
+        #d69b63 65%,
+        #9d6039 82%,
+        #56321b 100%
+    );
+
+    display: flex;
+}
+
+
+#hd_card_1 {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+#hd_card_1 h1 {
+    margin: 0;
+
+    font-family: 'Birthstone', cursive;
+
+    font-size: clamp(80px, 8vw, 130px);
+
+    color: #56321b;
+
+    text-shadow:
+    2px 3px rgba(255,255,255,.3);
+}
+
+
+#hd_card_1 h3 {
+
+    margin-top: -10px;
+
+    font-size: 20px;
+
+    color: #56321b;
+
+    font-weight: 600;
+
+}
+
+
+#hd_card_2 {
+
+    width:50%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+#hd_card_2 img {
+
+    width:400px;
+    height:400px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(0 20px 25px rgba(0,0,0,.25));
+
+}
+
+
+
+/* ================= NAVBAR ================= */
+
+
+#navbar {
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+
+    width:100%;
+
+    height:60px;
+
+
+    background:#56321b;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+#nav_links {
+
+    width:320px;
+
+    margin-left:10%;
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+
+
+#nav_links a {
+
+    color:#f7e7cf;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:700;
+
+
+    position:relative;
+
+    transition:.25s;
+
+}
+
+
+#nav_links a::after {
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0%;
+
+    height:3px;
+
+    background:#f2c98d;
+
+    transition:.25s;
+
+}
+
+
+#nav_links a:hover {
+
+    color:#f2c98d;
+
+}
+
+
+#nav_links a:hover::after {
+
+    width:100%;
+
+}
+
+
+
+/* ================= ABOUT ================= */
+
+
+#about_us {
+
+    width:80%;
+
+    max-width:1200px;
+
+    height:400px;
+
+
+    margin:60px auto;
+
+
+    padding:40px;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #f7e7cf,
+        #fff6e8
+    );
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(86,50,27,.12);
+
+
+    transition:.3s;
+
+}
+
+
+
+#about_us:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 25px 50px rgba(86,50,27,.18);
+
+}
+
+
+
+#about_us h1 {
+
+    font-family:'Birthstone', cursive;
+
+    font-size:60px;
+
+    margin:0;
+
+}
+
+
+
+#about_us p {
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+/* ================= MENU ================= */
+
+
+#menu {
+
+    width:80%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+
+#drinks,
+#desserts,
+#extras {
+
+    width:100%;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(220px,1fr));
+
+
+    gap:25px;
+
+
+    margin-bottom:80px;
+
+}
+
+
+
+
+/* ================= PRODUCT CARDS ================= */
+
+
+.drink {
+
+    min-height:240px;
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        #fffaf3,
+
+        #f7e7cf
+
+    );
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(86,50,27,.12);
+
+
+    transition:.25s;
+
+}
+
+
+
+.drink:hover {
+
+    transform:
+
+    translateY(-10px);
+
+
+    border:1px solid #c07d49;
+
+
+    box-shadow:
+
+    0 20px 45px rgba(86,50,27,.2);
+
+}
+
+
+
+
+.drink h3 {
+
+    font-family:'Birthstone',cursive;
+
+    font-size:45px;
+
+    margin:0;
+
+}
+
+
+
+.drink h4 {
+
+    margin:10px 0;
+
+    color:#c07d49;
+
+    font-size:22px;
+
+}
+
+
+
+.drink p {
+
+    margin:5px;
+
+    color:#6f4328;
+
+}
+
+
+.drink i {
+
+    color:#9d6039;
+
+}
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:800px){
+
+
+header {
+
+    flex-direction:column;
+
+    height:auto;
+
+    padding:30px 0;
+
+}
+
+
+#hd_card_1,
+#hd_card_2 {
+
+    width:100%;
+
+}
+
+
+#hd_card_2 img {
+
+    width:280px;
+
+    height:280px;
+
+}
+
+
+#nav_links {
+
+    width:90%;
+
+    margin:auto;
+
+}
+
+
+#about_us,
+#menu {
+
+    width:90%;
+
+}
+
+
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="hd_card_1">
+            <h1>exCoffee</h1>
+            <h3>Better coffee than your ex ever found.</h3>
+        </div>
+
+        <div id="hd_card_2">
+            <img src="coffeeCup.png" style="height: 400px; width: 400px; object-fit: cover; object-position: center;;">
+        </div>
+    </header>
+        <nav id="navbar">
+            <div id="nav_links">
+                <a href="#drinks">Drinks</a>
+                <a href="#desserts">Desserts</a>
+                <a href="#extras">Extras</a>
+            </div>
+        </nav>
+    <main>
+
+        <div id="about_us">
+            <h1>About Us</h1>
+            <p>
+                <b>exCoffee</b> is a coffee shop that serves the <b>best coffee in town</b>.<br> 
+                We are committed to providing our customers with the <b>best coffee experience possible</b>.<br> 
+                Our baristas are trained to make the <b>perfect cup of coffee</b> every time.<br> 
+                We use only the <b>freshest ingredients</b> and the <b>highest quality</b> coffee beans.<br>
+            </p>
+        </div>
+
+        <div id="menu">
+            <div id="drinks">
+
+            </div>
+            <div id="desserts">
+            </div>  
+            <div id="extras">
+
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js" type="module">
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY >= 400) {
+                navbar.classList.add("fixed");
+            } else {
+                navbar.classList.remove("fixed");
+            }
+        });
+    </script>
+</body>
+</html>

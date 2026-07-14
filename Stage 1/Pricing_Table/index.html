@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        :root{
+            --primary:#4f46e5;
+            --primary-hover:#4338ca;
+            --border:#e5e7eb;
+            --light:#f8fafc;
+            --text:#111827;
+            --subtext:#6b7280;
+        }
+
+        body{
+            font-family:"Google Sans",sans-serif;
+            background:#eef2ff;
+            color:var(--text);
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            min-height:100vh;
+            padding:40px;
+        }
+
+        #pricing_table{
+            width:1050px;
+            display:flex;
+            background:white;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 20px 45px rgba(0,0,0,.08);
+        }
+
+        /* ---------------- LEFT COLUMN ---------------- */
+
+        #left_card{
+            width:260px;
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            border-right:1px solid var(--border);
+            background:#fff;
+            margin-bottom: 96px;
+        }
+
+        #left_card .white,
+        #left_card .grey{
+            justify-content:flex-start;
+            padding-left:24px;
+            font-weight:500;
+        }
+
+        /* ---------------- RIGHT SIDE ---------------- */
+
+        #right_card{
+            flex:1;
+            display:flex;
+        }
+
+        .plan{
+            flex:1;
+            display:flex;
+            flex-direction:column;
+            border-right:1px solid var(--border);
+            background:white;
+        }
+
+        .plan:last-child{
+            border-right:none;
+        }
+
+        /* Highlight the middle plan */
+
+        #pro_plan_card{
+            transform:scale(1.04);
+            z-index:5;
+            box-shadow:0 15px 35px rgba(0,0,0,.10);
+        }
+
+        /* ---------------- HEADER ---------------- */
+
+        .top_Div{
+            height:190px;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            text-align:center;
+            padding:24px;
+        }
+
+        .plan-name{
+            color:var(--primary);
+            font-size:.85rem;
+            font-weight:700;
+            letter-spacing:2px;
+            margin-bottom:8px;
+        }
+
+        h3{
+            font-size:2.6rem;
+            margin-bottom:8px;
+        }
+
+        span{
+            font-size:1rem;
+            color:var(--subtext);
+            font-weight:400;
+        }
+
+        .price-description{
+            color:var(--subtext);
+            font-size:.9rem;
+        }
+
+        /* ---------------- FEATURES ---------------- */
+
+        .capacities{
+            flex:1;
+        }
+
+        .white,
+        .grey{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            height:60px;
+
+            border-top:1px solid var(--border);
+        }
+
+        .grey{
+            background:var(--light);
+        }
+
+        /* ---------------- BUTTON ---------------- */
+
+        button{
+            margin:24px;
+            height:48px;
+
+            border:none;
+            border-radius:10px;
+
+            background:var(--primary);
+            color:white;
+
+            font-size:1rem;
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:.25s;
+        }
+
+        button:hover{
+            background:var(--primary-hover);
+            transform:translateY(-2px);
+        }
+
+        button:active{
+            transform:translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+
+<div id="pricing_table">
+
+    <div id="left_card">
+
+        <div class="white">Cloud Storage</div>
+        <div class="grey">Projects</div>
+        <div class="white">Team Members</div>
+        <div class="grey">Analytics</div>
+        <div class="white">API Access</div>
+        <div class="grey">Priority Support</div>
+        <div class="white">Custom Domain</div>
+        <div class="grey">24/7 Support</div>
+
+    </div>
+
+    <div id="right_card">
+
+        <!-- FREE -->
+
+        <div id="free_plan_card" class="plan">
+
+            <div class="top_Div">
+                <p class="plan-name">START</p>
+
+                <h3>FREE</h3>
+
+                <p class="price-description">
+                    Charged $0 forever
+                </p>
+            </div>
+
+            <div class="capacities">
+
+                <div class="white">5 GB</div>
+                <div class="grey">2</div>
+                <div class="white">1</div>
+                <div class="grey">—</div>
+                <div class="white">—</div>
+                <div class="grey">—</div>
+                <div class="white">—</div>
+                <div class="grey">Email Only</div>
+
+            </div>
+
+            <button>Get Started</button>
+
+        </div>
+
+        <!-- PRO -->
+
+        <div id="pro_plan_card" class="plan">
+
+            <div class="top_Div">
+                <p class="plan-name">PRO</p>
+
+                <h3>$17 <span>/mo</span></h3>
+
+                <p class="price-description">
+                    Charged $204 per year
+                </p>
+            </div>
+
+            <div class="capacities">
+
+                <div class="white">100 GB</div>
+                <div class="grey">Unlimited</div>
+                <div class="white">10</div>
+                <div class="grey">Included</div>
+                <div class="white">Included</div>
+                <div class="grey">Included</div>
+                <div class="white">Included</div>
+                <div class="grey">24/7</div>
+
+            </div>
+
+            <button>Choose Pro</button>
+
+        </div>
+
+        <!-- BUSINESS -->
+
+        <div id="business_plan_card" class="plan">
+
+            <div class="top_Div">
+                <p class="plan-name">BUSINESS</p>
+
+                <h3>$22 <span>/mo</span></h3>
+
+                <p class="price-description">
+                    Charged $374 per year
+                </p>
+            </div>
+
+            <div class="capacities">
+
+                <div class="white">1 TB</div>
+                <div class="grey">Unlimited</div>
+                <div class="white">Unlimited</div>
+                <div class="grey">Advanced</div>
+                <div class="white">Full API</div>
+                <div class="grey">Dedicated</div>
+                <div class="white">Unlimited</div>
+                <div class="grey">24/7 Premium</div>
+
+            </div>
+
+            <button>Choose Business</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+</body>
+</html>
