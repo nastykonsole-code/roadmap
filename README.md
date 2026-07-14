@@ -30,10 +30,10 @@ Building strong frontend foundations.
 - ✅ Login Form
 - ✅ Restaurant Menu
 - ✅ Blog Layout
-- ⬜ Responsive Navigation Bar
-- ⬜ Dashboard Layout
-- ⬜ Photo Gallery
-- ⬜ CSS Grid Magazine
+- ✅ Responsive Navigation Bar
+- ✅ Dashboard Layout
+- ✅ Photo Gallery
+- ✅ CSS Grid Magazine
 
 ### Skills
 
@@ -306,7 +306,7 @@ vault/
 # 📊 Progress
 
 ```
-HTML & CSS       ██████░░░░ 60%
+HTML & CSS       ██████████ 100%
 JavaScript       ░░░░░░░░░░ 0%
 React            ░░░░░░░░░░ 0%
 Python           ░░░░░░░░░░ 0%
