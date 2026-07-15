@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stop Watch</title>
+
+<script src="https://kit.fontawesome.com/b160e75569.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Google Sans", sans-serif;
+    background:#111;
+}
+
+/* MAIN STOPWATCH CONTAINER */
+
+.stop_watch{
+    width:500px;
+    height:220px;
+    margin:30vh auto;
+    background:#181818;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CLOCK SCREEN */
+
+.screen{
+    width:96%;
+    height:110px;
+    background:#2a2a2a;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CLOCK LAYOUT */
+.clock{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+}
+
+.time_box{
+    width:75px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* NUMBERS */
+
+.number{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+    width:100%;
+    text-align:center;
+    font-variant-numeric:tabular-nums;
+}
+
+.milliseconds{
+    width:90px;
+}
+
+/* LABELS */
+
+.label{
+    color:#888;
+    font-size:14px;
+    margin-top:5px;
+}
+
+
+/* BUTTON AREA */
+
+.controls{
+    width:96%;
+    height:80px;
+    margin-top:10px;
+    background:#2a2a2a;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+
+
+
+button{
+    width:100px;
+    height:60px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-weight:bold;
+    transition:.2s ease;
+}
+
+
+
+button:hover{
+    cursor:pointer;
+    transform:translateY(-5px);
+}
+
+
+
+
+#start, #pause, #reset{
+    background:red;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="stop_watch">
+
+    <div class="screen">
+
+        <div class="clock">
+
+            <div class="time_box">
+                <div id="hr" class="number">
+                    00
+                </div>
+                <div class="label">
+                    HR
+                </div>
+            </div>
+
+
+
+            <div class="time_box">
+
+                <div id="min" class="number">
+                    00
+                </div>
+                <div class="label">
+                    MIN
+                </div>
+            </div>
+
+            <div class="time_box">
+                <div id="s" class="number">
+                    00
+                </div>
+                <div class="label">
+                    SEC
+                </div>
+            </div>
+
+            <div class="time_box">
+                <div id="ms" class="number milliseconds">
+                    000
+                </div>
+
+                <div class="label">
+                    MS
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+
+        <button id="start">
+            <i class="fa-solid fa-play"></i>
+        </button>
+
+        <button id="pause">
+            <i class="fa-solid fa-pause"></i>
+        </button>
+        <button id="reset">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+// Get buttons
+const start = document.getElementById("start");
+const reset = document.getElementById("reset");
+const pause = document.getElementById("pause");
+
+// Get clock elements
+const hr = document.getElementById("hr");
+const min = document.getElementById("min");
+const s = document.getElementById("s");
+const ms = document.getElementById("ms");
+
+// Stores total elapsed milliseconds
+let milliseconds = 0;
+
+// Stores interval ID
+let intervalId = null;
+
+// Function that updates the stopwatch
+function timer(){
+    // Add 10 milliseconds
+    milliseconds += 10;
+    // Convert milliseconds into time units
+    let hours = Math.floor(milliseconds / 3600000);
+    let minutes = Math.floor(
+        (milliseconds % 3600000) / 60000
+    );
+    let seconds = Math.floor(
+        (milliseconds % 60000) / 1000
+    );
+    // Update screen
+    hr.innerText = String(hours).padStart(2,"0");
+    min.innerText = String(minutes).padStart(2,"0");
+    s.innerText = String(seconds).padStart(2,"0");
+    ms.innerText = String(milliseconds % 1000).padStart(3,"0");
+}
+
+// START BUTTON
+start.onclick = function(){
+    // Prevent multiple intervals
+    if(intervalId === null){
+        intervalId = setInterval(timer,10);
+    }
+};
+//  Pause BUTTON
+
+pause.onclick = function() {
+    clearInterval(intervalId);
+    intervalId = null;
+
+}
+
+// RESET BUTTON
+
+reset.onclick = function(){
+    // Stop timer
+
+    clearInterval(intervalId);
+    // Allow restarting
+
+    intervalId = null;
+    // Reset value
+    milliseconds = 0;
+
+    // Reset display
+
+    hr.innerText = "00";
+    min.innerText = "00";
+    s.innerText = "00";
+    ms.innerText = "000";
+
+};
+
+
+
+</script>
+
+
+</body>
+</html>
