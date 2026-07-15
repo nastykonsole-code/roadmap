@@ -54,7 +54,7 @@ Adding logic, interactivity, and dynamic functionality.
 ### Projects
 
 - ✅ Counter
-- Stopwatch
+- ✅ Stopwatch
 - Calculator
 - To-Do List
 - Notes App
