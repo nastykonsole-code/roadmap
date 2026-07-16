@@ -6,6 +6,8 @@
 
 <title>Stop Watch</title>
 
+    <link rel="stylesheet" href="styles.css">
+
 <script src="https://kit.fontawesome.com/b160e75569.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,128 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
 
 
-<style>
 
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:"Google Sans", sans-serif;
-    background:#111;
-}
-
-/* MAIN STOPWATCH CONTAINER */
-
-.stop_watch{
-    width:500px;
-    height:220px;
-    margin:30vh auto;
-    background:#181818;
-    border-radius:20px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-/* CLOCK SCREEN */
-
-.screen{
-    width:96%;
-    height:110px;
-    background:#2a2a2a;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* CLOCK LAYOUT */
-.clock{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
-}
-
-.time_box{
-    width:75px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-
-/* NUMBERS */
-
-.number{
-    color:white;
-    font-size:32px;
-    font-weight:bold;
-    width:100%;
-    text-align:center;
-    font-variant-numeric:tabular-nums;
-}
-
-.milliseconds{
-    width:90px;
-}
-
-/* LABELS */
-
-.label{
-    color:#888;
-    font-size:14px;
-    margin-top:5px;
-}
-
-
-/* BUTTON AREA */
-
-.controls{
-    width:96%;
-    height:80px;
-    margin-top:10px;
-    background:#2a2a2a;
-    border-radius:10px;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-}
-
-
-
-
-button{
-    width:100px;
-    height:60px;
-    border:none;
-    border-radius:10px;
-    color:white;
-    font-weight:bold;
-    transition:.2s ease;
-}
-
-
-
-button:hover{
-    cursor:pointer;
-    transform:translateY(-5px);
-}
-
-
-
-
-#start, #pause, #reset{
-    background:red;
-}
-
-
-
-</style>
 
 </head>
 <body>

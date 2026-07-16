@@ -1,0 +1,51 @@
+
+        body {
+            margin: 0;
+            font-family: Google Sans;
+        }
+
+        #container {
+            width: 500px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30vh;
+            background-color: antiquewhite;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        button {
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            border: none;
+            color: white;
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
+        }
+
+        #increase {
+            background-color: blue;
+        }
+        #decrease {
+            background-color: red;
+        }
+        #reset {
+            background-color: green;
+        }
+
+    
+
+    

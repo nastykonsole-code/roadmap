@@ -1,0 +1,196 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --orange:#ff852e;
+    --dark:#222;
+    --gray:#777;
+    --background:#fff8f2;
+}
+
+body{
+    font-family:"Google Sans",sans-serif;
+    background:var(--background);
+}
+
+
+/* HEADER */
+
+header{
+    height:220px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff852e,
+        #ffb347
+    );
+
+    color:white;
+
+    font-family:"Birthstone",cursive;
+    font-size:6rem;
+
+    text-shadow:
+    2px 3px rgba(0,0,0,.15);
+}
+
+
+/* MENU GRID */
+
+#menu{
+
+    width:85%;
+    margin:50px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+
+/* FOOD CARD */
+
+.food-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    padding-bottom:20px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    transition:.25s;
+}
+
+
+.food-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+}
+
+
+/* IMAGE */
+
+.food-card img{
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+
+/* TEXT */
+
+.food-card h3{
+
+    margin:18px 20px 8px;
+
+    font-size:1.3rem;
+
+}
+
+
+.food-card p{
+
+    margin:0 20px;
+
+    color:var(--gray);
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+    min-height:45px;
+
+}
+
+
+.food-card h4{
+
+    margin:15px 20px;
+
+    font-size:1.2rem;
+
+    color:var(--orange);
+
+}
+
+
+/* BUTTON */
+
+button{
+
+    margin-left:20px;
+
+    width:130px;
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--orange);
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+button:hover{
+
+    background:#e96d17;
+
+    transform:scale(1.05);
+
+}
+
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        font-size:4rem;
+    }
+
+    #menu{
+        width:90%;
+    }
+
+}
+

@@ -1,0 +1,418 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    background:#ececec;
+
+}
+
+
+/* MAGAZINE */
+
+#Magazine{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+
+
+/* TOP SECTION */
+
+.top{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* MAIN IMAGE */
+
+.image_section{
+
+    height:500px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.image_section img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+    transform .7s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+
+.image_section:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+/* NEWS SIDE */
+
+.other_news{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+
+.first_news,
+.second_news,
+.main_news{
+
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+
+    width:100%;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+
+
+    transition:
+
+    transform .35s ease,
+
+    box-shadow .35s ease;
+
+
+}
+
+
+
+/* SMALL NEWS CARDS */
+
+.first_news,
+.second_news{
+
+
+    border-top-right-radius:0;
+
+    border-bottom-right-radius:0;
+    height:240px;
+
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+
+}
+
+
+
+/* HOVER */
+
+.first_news:hover,
+.second_news:hover,
+.main_news:hover{
+
+
+    transform:translateY(-8px);
+
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.15);
+
+
+    cursor:pointer;
+
+
+
+}
+
+
+
+
+/* HEADINGS */
+
+
+h1{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+    position:relative;
+
+    display:inline-block;
+
+}
+
+
+
+/* TITLE UNDERLINE */
+
+
+.first_news h1::after,
+.second_news h1::after,
+.main_news h1::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:0;
+
+    bottom:-8px;
+
+
+    width:0;
+
+    height:3px;
+
+
+    background:#e10600;
+
+
+    border-radius:10px;
+
+
+    transition:
+
+    width .35s cubic-bezier(.22,1,.36,1);
+
+
+}
+
+
+
+.first_news:hover h1::after,
+.second_news:hover h1::after,
+.main_news:hover h1::after{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+/* TEXT */
+
+
+p{
+
+    color:#777;
+
+    line-height:1.5;
+
+    margin-bottom:8px;
+
+}
+
+
+
+span{
+
+
+    display:block;
+
+
+    margin-top:20px;
+
+
+    margin-bottom:15px;
+
+
+    color:#e10600;
+
+
+    font-size:13px;
+
+
+    letter-spacing:.5px;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+/* SCROLLBAR */
+
+
+.first_news::-webkit-scrollbar,
+.second_news::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+
+
+.first_news::-webkit-scrollbar-track,
+.second_news::-webkit-scrollbar-track{
+
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+
+    background:#eee;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+.first_news::-webkit-scrollbar-thumb,
+.second_news::-webkit-scrollbar-thumb{
+
+
+    background:#e10600;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+/* FIREFOX SCROLLBAR */
+
+
+.first_news,
+.second_news{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#e10600 #eee;
+
+}
+
+
+
+
+
+/* BOTTOM NEWS */
+
+
+.bottom{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.main_news{
+
+    min-height:200px;
+
+    border-top-right-radius:0;
+
+    border-bottom-right-radius:0;
+
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:800px){
+
+
+    #Magazine{
+
+        width:95%;
+
+    }
+
+
+    .top{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .image_section{
+
+        height:350px;
+
+    }
+
+
+
+    h1{
+
+        font-size:22px;
+
+    }
+
+
+}
