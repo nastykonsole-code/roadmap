@@ -130,7 +130,7 @@
 
         // Get display elements
         const screen = document.getElementById('screen');
-        const curentCalc = document.getElementById('currentCalc');
+        const currentCalc = document.getElementById('currentCalc');
 
         // ===== STATE VARIABLES =====
         // Store calculation state: first number, second number, operation symbol, and result
@@ -157,13 +157,53 @@
 
         // ===== OPERATION HANDLERS =====
         // Listen for clicks on calculation buttons and store the first number and operation
+        // Support chained operations (9 * 9 * 9 shows 81 * 9)
         for (let calc of calculation) {
             calc.onclick = function () {
-                stNum += Number(screen.innerText);
+                ndNum = Number(screen.innerText);
+                
+                // If there's a pending operation, calculate it first
+                if (calcSymbol !== '') {
+                    switch (calcSymbol) {
+                        case '+':
+                            result = stNum + ndNum;
+                            break;
+                        case '-':
+                            result = stNum - ndNum;
+                            break;
+                        case '*':
+                            result = stNum * ndNum;
+                            break;
+                        case '/':
+                            if (ndNum === 0) {
+                                screen.innerText = 'ERROR';
+                                stNum = 0;
+                                ndNum = 0;
+                                calcSymbol = '';
+                                currentCalc.innerText = '';
+                                return;
+                            }
+                            result = stNum / ndNum;
+                            break;
+                        case '%':
+                            result = stNum % ndNum;
+                            break;
+                    }
+                    stNum = result;
+                } else {
+                    // First operation, just store the number
+                    stNum = ndNum;
+                }
+                
+                // Update display and store the new operator
                 calcSymbol = calc.value;
+                currentCalc.innerText = `${stNum} ${calc.value}`;
                 screen.innerText = '';
-                curentCalc.innerText = `Current calc: ${calc.value}`
             }
+        }
+
+        function showResult(number) {
+            screen.innerText = Number(number.toFixed(3));
         }
 
         // ===== EQUALS BUTTON HANDLER =====
@@ -174,38 +214,44 @@
             switch (calcSymbol){
                 case '+':
                     result = stNum + ndNum; 
-                    screen.innerText = result;
+                    showResult(result);
                     break;
+
                 case '-':
                     result = stNum - ndNum; 
-                    screen.innerText = result;
+                    showResult(result);
                     break;
+
                 case '/':
                     if (ndNum === 0) {
                         screen.innerText = 'ERROR';
+                        stNum = 0;
+                        ndNum = 0;
+                        return;
                     }
-                    else{
+                    else {
                         result = stNum / ndNum; 
-                        screen.innerText = result;
+                        showResult(result);
                     }
                     break;
+
                 case '*':
                     result = stNum * ndNum; 
-                    screen.innerText = result;
+                    showResult(result);
                     break;
+
                 case '%':
                     result = stNum % ndNum;
-                    screen.innerText = result;
+                    showResult(result);
                     break;
                 default:
                     screen.innerText = '0';
                     break;
-            }         
-            function showResult(number) {
-                screen.innerText = Number(number.toFixed(3));
-            }
-            stNum = 0;   
+            }     
+            currentCalc.innerText = '';
+            stNum = result;
             ndNum = 0;
+            calcSymbol = '';
         })
 
         // ===== CLEAR BUTTON HANDLER =====
@@ -215,7 +261,7 @@
             stNum = 0;
             ndNum = 0;
             calcSymbol = '';
-            curentCalc.innerText = `Current calc: ${calcSymbol}`;
+            currentCalc.innerText = '';
         }
 
         // ===== PLUS/MINUS BUTTON HANDLER =====
