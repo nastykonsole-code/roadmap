@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/b160e75569.js"></script>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Google Sans", sans-serif;
+    background: #121212;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calculator {
+
+    width: 320px;
+
+    background: #1c1c1c;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.5);
+}
+
+
+
+/* SCREEN */
+
+.screen {
+
+    height: 100px;
+
+    background: #2a2a2a;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+
+    color:white;
+
+    overflow:hidden;
+}
+
+
+#currentCalc {
+
+    height:20px;
+
+    width:100%;
+
+    text-align:right;
+
+    color:#aaa;
+
+    font-size:14px;
+
+}
+
+
+#screen {
+
+    width:100%;
+
+    text-align:right;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    overflow:hidden;
+
+}
+
+
+
+/* BUTTONS */
+
+.buttons {
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+
+
+button {
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+
+    font-size:22px;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+
+    transition:
+
+    transform .1s,
+
+    filter .2s;
+
+}
+
+
+
+button:hover {
+
+    filter:brightness(1.15);
+
+}
+
+
+button:active {
+
+    transform:scale(.92);
+
+}
+
+
+
+/* COLORS */
+
+.grey {
+
+    background:#D4D4D2;
+
+    color:black;
+
+}
+
+
+
+.dark-grey {
+
+    background:#505050;
+
+    color:white;
+
+}
+
+
+
+.orange {
+
+    background:#FF9500;
+
+    color:white;
+
+}
+
+
+
+/* ZERO BUTTON */
+
+#zero {
+
+    grid-column:span 2;
+
+    border-radius:35px;
+
+}
+
+
+
+/* ICON */
+
+button i {
+
+    font-size:22px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="calculator">
+
+
+    <div class="screen">
+
+        <div id="currentCalc"></div>
+
+        <div id="screen">0</div>
+
+    </div>
+
+
+
+    <div class="buttons">
+
+
+        <!-- Row 1 -->
+
+        <button id="clear" class="grey">C</button>
+
+        <button id="plusMinus" class="grey">+/-</button>
+
+        <button id="percent" value="%" class="grey">%</button>
+
+        <button id="divide" value="/" class="orange calculations">÷</button>
+
+
+
+        <!-- Row 2 -->
+
+        <button id="seven" value="7" class="dark-grey">7</button>
+
+        <button id="eight" value="8" class="dark-grey">8</button>
+
+        <button id="nine" value="9" class="dark-grey">9</button>
+
+        <button id="multiply" value="*" class="orange calculations">×</button>
+
+
+
+        <!-- Row 3 -->
+
+        <button id="four" value="4" class="dark-grey">4</button>
+
+        <button id="five" value="5" class="dark-grey">5</button>
+
+        <button id="six" value="6" class="dark-grey">6</button>
+
+        <button id="subtract" value="-" class="orange calculations">−</button>
+
+
+
+        <!-- Row 4 -->
+
+        <button id="one" value="1" class="dark-grey">1</button>
+
+        <button id="two" value="2" class="dark-grey">2</button>
+
+        <button id="three" value="3" class="dark-grey">3</button>
+
+        <button id="add" value="+" class="orange calculations">+</button>
+
+
+
+        <!-- Row 5 -->
+
+        <button id="zero" value="0" class="dark-grey">0</button>
+
+        <button id="decimal" value="." class="dark-grey">.</button>
+
+        <button id="equals" value="=" class="orange calculations">=</button>
+
+
+    </div>
+
+
+</div>
+    <script>
+        // ===== ELEMENT REFERENCES =====
+        // Get all number buttons (0-9) and store them in an array
+        const zero = document.getElementById('zero');
+        const one = document.getElementById('one');
+        const two = document.getElementById('two');
+        const three = document.getElementById('three');
+        const four = document.getElementById('four');
+        const five = document.getElementById('five');
+        const six = document.getElementById('six');
+        const seven = document.getElementById('seven');
+        const eight = document.getElementById('eight');
+        const nine = document.getElementById('nine');
+
+        const numbers = [zero, one, two, three, four, five, six, seven, eight, nine];
+
+        // Get all operation buttons and the equals button
+        const equals = document.getElementById("equals");
+        const add = document.getElementById('add');
+        const subtract = document.getElementById('subtract');
+        const multiply = document.getElementById('multiply');
+        const divide = document.getElementById("divide");
+        const percent = document.getElementById('percent');
+        const plusMinus = document.getElementById('plusMinus');
+        const clear = document.getElementById('clear');
+        const decimal = document.getElementById('decimal');
+
+        const calculation = [add, subtract, multiply, divide, percent];
+
+        // Get display elements
+        const screen = document.getElementById('screen');
+        const curentCalc = document.getElementById('currentCalc');
+
+        // ===== STATE VARIABLES =====
+        // Store calculation state: first number, second number, operation symbol, and result
+        let result = 0;
+        let stNum = 0;      // First number entered
+        let ndNum = 0;      // Second number entered
+        let calcSymbol = ''; // Operation symbol (+, -, *, /, %)
+
+        // Initialize display
+        screen.innerText = result;
+
+        // ===== NUMBER INPUT HANDLERS =====
+        // Listen for clicks on number buttons and display the selected number
+        for (let num of numbers) {
+            num.onclick = function() {
+                if (screen.innerText === '0') {
+                    screen.innerText = '';
+                    screen.innerText += num.value;
+                } else {
+                    screen.innerText += num.value;
+                }
+            }
+        }
+
+        // ===== OPERATION HANDLERS =====
+        // Listen for clicks on calculation buttons and store the first number and operation
+        for (let calc of calculation) {
+            calc.onclick = function () {
+                stNum += Number(screen.innerText);
+                calcSymbol = calc.value;
+                screen.innerText = '';
+                curentCalc.innerText = `Current calc: ${calc.value}`
+            }
+        }
+
+        // ===== EQUALS BUTTON HANDLER =====
+        // Perform the calculation when equals is clicked
+        equals.addEventListener('click',  function () {  
+          ndNum = Number(screen.innerText);
+
+            switch (calcSymbol){
+                case '+':
+                    result = stNum + ndNum; 
+                    screen.innerText = result;
+                    break;
+                case '-':
+                    result = stNum - ndNum; 
+                    screen.innerText = result;
+                    break;
+                case '/':
+                    if (ndNum === 0) {
+                        screen.innerText = 'ERROR';
+                    }
+                    else{
+                        result = stNum / ndNum; 
+                        screen.innerText = result;
+                    }
+                    break;
+                case '*':
+                    result = stNum * ndNum; 
+                    screen.innerText = result;
+                    break;
+                case '%':
+                    result = stNum % ndNum;
+                    screen.innerText = result;
+                    break;
+                default:
+                    screen.innerText = '0';
+                    break;
+            }         
+            function showResult(number) {
+                screen.innerText = Number(number.toFixed(3));
+            }
+            stNum = 0;   
+            ndNum = 0;
+        })
+
+        // ===== CLEAR BUTTON HANDLER =====
+        // Reset all values and display when clear button is clicked
+        clear.onclick = function() {
+            screen.innerText = '0';
+            stNum = 0;
+            ndNum = 0;
+            calcSymbol = '';
+            curentCalc.innerText = `Current calc: ${calcSymbol}`;
+        }
+
+        // ===== PLUS/MINUS BUTTON HANDLER =====
+        // Toggle the sign of the current number (add or remove leading minus sign)
+        plusMinus.onclick = function() {
+            if(screen.innerText.startsWith('-')) {
+                screen.innerText = screen.innerText.slice(1);
+            } else {
+                screen.innerText = '-' + screen.innerText;
+            }
+        }
+
+        // ===== DECIMAL BUTTON HANDLER =====
+        // Add a decimal point to the current number (prevent multiple decimals)
+        decimal.onclick = function() {
+            if (!screen.innerText.includes('.')) {
+                screen.innerText = screen.innerText + '.';
+            } else {
+                screen.innerText = screen.innerText;
+            }
+        }
+
+    </script>
+</body>
+</html>
