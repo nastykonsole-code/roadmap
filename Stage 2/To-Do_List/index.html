@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic page settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>To-Do list</title>
+
+
+    <!-- Load Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <!-- Connect external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Main application container -->
+<div class="todo-container">
+
+
+
+    <!-- Left side: goal preview and tasks -->
+    <div class="main">
+
+
+
+        <!-- Displays the current goal title and description -->
+        <div id="title_and_description">
+
+
+            <!-- Updated dynamically using JavaScript -->
+            <h1 id="title_h1"></h1>
+
+
+            <!-- Updated dynamically using JavaScript -->
+            <p id="description_p"></p>
+
+
+        </div>
+
+
+
+
+        <!-- Shows how many tasks are completed -->
+        <p id="counter">
+            0 / 0 Completed
+        </p>
+
+
+
+
+
+        <!-- New tasks will be inserted here using JavaScript -->
+        <div id="tasks_container">
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Right side: user input controls -->
+    <div class="commands">
+
+
+
+
+
+        <!-- Input for the main goal/title -->
+        <label>
+
+            Goal:
+
+
+            <!-- User types the main goal here -->
+            <input 
+                id="goal_input"
+                type="text"
+                placeholder="Your goal..."
+            >
+
+        </label>
+
+
+
+
+
+
+
+        <!-- Input for goal description -->
+        <label>
+
+
+            Description:
+
+
+            <!-- User types description here -->
+            <input 
+                id="description_input"
+                type="text"
+                placeholder="Description..."
+            >
+
+
+        </label>
+
+
+
+
+
+
+
+        <!-- Task creation section -->
+        <label>
+
+
+            Add a Task:
+
+
+
+            <!-- Input where users type a new task -->
+            <input 
+                id="task_input"
+                type="text"
+                placeholder="Task..."
+            >
+
+
+
+
+
+            <!-- Creates a new task when clicked -->
+            <button id="task_submit">
+
+                Add
+
+            </button>
+
+
+
+        </label>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+
+
+// ==============================
+// GET HTML ELEMENTS
+// ==============================
+
+// Inputs
+const goal_input = document.getElementById("goal_input");
+const description_input = document.getElementById("description_input");
+const task_input = document.getElementById("task_input");
+
+
+// Button
+const task_submit = document.getElementById("task_submit");
+
+
+// Display elements
+const title = document.getElementById("title_h1");
+const description = document.getElementById("description_p");
+
+
+// Container where tasks are added
+const tasks_container = document.getElementById("tasks_container");
+
+
+// Task completion counter
+const counter = document.getElementById("counter");
+
+
+
+
+
+// ==============================
+// UPDATE GOAL TITLE
+// ==============================
+
+// Changes the displayed goal whenever input changes
+function updateGoal(){
+
+
+    // If input is empty show default text
+    if(goal_input.value.trim() === ""){
+
+
+        title.innerText = "[ No Goal ]";
+
+        title.style.color = "grey";
+
+
+    }
+
+    else{
+
+
+        // Display user input
+        title.innerText = goal_input.value;
+
+        title.style.color = "white";
+
+
+    }
+
+
+}
+
+
+
+
+
+
+// ==============================
+// UPDATE DESCRIPTION
+// ==============================
+
+function updateDescription(){
+
+
+    // If description is empty
+    if(description_input.value.trim() === ""){
+
+
+        description.innerText = "[ No Description ]";
+
+        description.style.color = "grey";
+
+
+    }
+
+    else{
+
+
+        description.innerText = description_input.value;
+
+        description.style.color = "#A1A1AA";
+
+
+    }
+
+
+}
+
+
+
+
+
+// Listen for changes in inputs
+goal_input.addEventListener("input", updateGoal);
+
+description_input.addEventListener("input", updateDescription);
+
+
+
+// Run once when page loads
+updateGoal();
+
+updateDescription();
+
+
+
+
+
+
+
+// ==============================
+// UPDATE TASK COUNTER
+// ==============================
+
+function updateCounter(){
+
+
+
+    // Get all checkboxes
+    const checkboxes =
+    document.querySelectorAll(
+        "#tasks_container input[type='checkbox']"
+    );
+
+
+
+    // Get checked checkboxes
+    const completed =
+    document.querySelectorAll(
+        "#tasks_container input[type='checkbox']:checked"
+    );
+
+
+
+    // Update counter text
+    counter.innerText =
+    `${completed.length} / ${checkboxes.length} Completed`;
+
+
+
+}
+
+
+
+
+
+
+
+// ==============================
+// CREATE NEW TASK
+// ==============================
+
+
+task_submit.addEventListener("click", () => {
+
+
+
+    // Prevent empty tasks
+    if(task_input.value.trim() === ""){
+
+        return;
+
+    }
+
+
+
+
+
+    // Create task container
+    const task_div = document.createElement("div");
+
+    task_div.classList.add("task");
+
+
+
+
+
+    // Create checkbox
+    const checkbox = document.createElement("input");
+
+    checkbox.type = "checkbox";
+
+
+
+
+
+    // Create task text
+    const text = document.createElement("p");
+
+    text.innerText = task_input.value;
+
+
+
+
+
+    // Create delete button
+    const delete_button = document.createElement("button");
+
+    delete_button.innerText = "✕";
+
+    delete_button.classList.add("delete-btn");
+
+
+
+
+
+
+
+
+    // ==============================
+    // CHECKBOX FUNCTIONALITY
+    // ==============================
+
+    checkbox.addEventListener("change", ()=>{
+
+
+        // If completed, cross text out
+        if(checkbox.checked){
+
+
+            text.style.textDecoration = "line-through";
+
+            text.style.opacity = ".5";
+
+
+        }
+
+        else{
+
+
+            text.style.textDecoration = "none";
+
+            text.style.opacity = "1";
+
+
+        }
+
+
+
+        updateCounter();
+
+
+    });
+
+
+
+
+
+
+
+    // ==============================
+    // DELETE FUNCTIONALITY
+    // ==============================
+
+    delete_button.addEventListener("click", ()=>{
+
+
+        // Remove task from page
+        task_div.remove();
+
+
+
+        // Refresh counter
+        updateCounter();
+
+
+    });
+
+
+
+
+
+
+
+    // Add elements into task container
+    task_div.appendChild(checkbox);
+
+    task_div.appendChild(text);
+
+    task_div.appendChild(delete_button);
+
+
+
+    // Add task to the page
+    tasks_container.appendChild(task_div);
+
+
+
+
+
+
+    // Clear input after adding task
+    task_input.value = "";
+
+    task_input.focus();
+
+
+
+
+
+    // Update completed counter
+    updateCounter();
+
+
+
+});
+
+
+
+</script>
+
+
+</body>
+
+</html>

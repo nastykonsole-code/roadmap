@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0B0B0D, #111318);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    color: #FFFFFF;
+}
+
+.todo-container {
+    width: 900px;
+    height: 560px;
+    display: flex;
+
+    background: #16181D;
+
+    border: 1px solid #2B2E36;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 1px rgba(255,255,255,.1);
+}
+
+.main,
+.commands {
+    width: 50%;
+    height: 100%;
+}
+
+/* ---------------- MAIN ---------------- */
+
+.main {
+    background: #0F1115;
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#title_and_description {
+    border-bottom: 1px solid #2C2F37;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+}
+
+#title_and_description h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+#title_and_description p {
+    color: #A1A1AA;
+    line-height: 1.6;
+    font-size: .95rem;
+}
+
+#tasks_container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    overflow-y: auto;
+}
+
+/* Example task styling */
+
+.task {
+    background: #191C22;
+    border: 1px solid #2F333C;
+
+    border-radius: 12px;
+
+    padding: 14px 18px;
+
+    transition: .2s;
+}
+
+.task:hover {
+    border-color: #0075FF;
+    transform: translateY(-2px);
+}
+
+/* ---------------- COMMANDS ---------------- */
+
+.commands {
+    background: #16181D;
+
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+
+    border-left: 1px solid #2C2F37;
+}
+
+.commands label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-size: .95rem;
+    font-weight: 500;
+
+    color: #FFFFFF;
+}
+
+.commands input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #32343C;
+
+    background: #0F1115;
+
+    color: white;
+
+    outline: none;
+
+    transition: .25s;
+}
+
+.commands input::placeholder {
+    color: #6B7280;
+}
+
+.commands input:focus {
+    border-color: #0075FF;
+
+    box-shadow: 0 0 0 4px rgba(0,117,255,.18);
+}
+
+.commands button {
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #0075FF;
+
+    color: white;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.commands button:hover {
+    background: #0062D6;
+}
+
+.commands button:active {
+    transform: scale(.98);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #32343C;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4A4F59;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    cursor: pointer;
+
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 500;
+
+    user-select: none;
+}
+
+#counter {
+
+    color:#A1A1AA;
+
+    font-size:.9rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.task {
+
+    margin-top: 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+
+    min-height:55px;
+
+
+    padding:14px 18px;
+
+
+    background:#191C22;
+
+
+    border:1px solid #2F333C;
+
+
+    border-radius:12px;
+
+
+    transition:.25s;
+
+}
+
+
+
+.task:hover {
+
+    border-color:#0075FF;
+
+}
+
+
+
+.task p {
+
+    flex:1;
+
+    color:white;
+
+}
+
+
+
+.task input[type="checkbox"] {
+
+    width:20px;
+
+    height:20px;
+
+    cursor:pointer;
+
+    accent-color:#0075FF;
+
+}
+
+
+
+.delete-btn {
+
+    width:35px;
+
+    height:35px;
+
+
+    border:none;
+
+    border-radius:8px;
+
+
+    background:#D90429;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    font-weight:bold;
+
+
+    transition:.25s;
+
+}
+
+
+
+.delete-btn:hover {
+
+    background:#B70324;
+
+}
+
+
+
+#tasks_container {
+
+    gap:12px;
+
+}
