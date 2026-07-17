@@ -56,7 +56,7 @@ Adding logic, interactivity, and dynamic functionality.
 - ✅ Counter
 - ✅ Stopwatch
 - ✅ Calculator
-- To-Do List
+- ✅ To-Do List
 - Notes App
 - Weather App
 - Password Generator
