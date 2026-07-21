@@ -57,9 +57,9 @@ Adding logic, interactivity, and dynamic functionality.
 - ✅ Stopwatch
 - ✅ Calculator
 - ✅ To-Do List
-- Notes App
-- Weather App
-- Password Generator
+- ✅ Notes App
+- ✅ Weather App
+- ✅ Password Generator
 - Quiz App
 - Currency Converter
 - Memory Card Game
