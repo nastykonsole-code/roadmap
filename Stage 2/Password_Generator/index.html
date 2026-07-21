@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Gennerator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="password_generator">
+        <div id="options">
+            <h1>
+                Password Gennerator
+            </h1>
+            <h4>
+                Length:
+            </h4>
+            <input min="8" id="length" type="number" />
+
+            <button id="generate_btn">Generate</button>
+        
+
+
+        </div>
+        <div id="password_return">
+            <div id="passwd_sec">
+                <div id="password">
+
+                </div>
+                <button>
+                    Copy
+                </button>
+            </div>            
+        </div>
+    </div>
+
+    <script>
+
+        const length = document.getElementById('length');
+        let length_value = length.value;
+        const generate_btn = document.getElementById('generate_btn');
+
+
+        const characters = [
+            'A','B','C','D','E','F','G','H','I','J','K','L','M',
+            'N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+
+            'a','b','c','d','e','f','g','h','i','j','k','l','m',
+            'n','o','p','q','r','s','t','u','v','w','x','y','z',
+
+            '0','1','2','3','4','5','6','7','8','9',
+
+            '!','@','#','$','%','^','&','*','(',')',
+            '-','_','=','+',
+            '[',']','{','}',
+            ';',':',"'",'"',
+            ',','.','<','>',
+            '/','?','\\','|',
+            '`','~',' '
+            ];
+
+        generate_btn.addEventListener('click', () => {
+
+            const lengthValue = Number(length.value) || 12;
+            let password = "";
+
+            for (let i = 0; i < lengthValue; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+
+            const passwordEl = document.getElementById('password');
+            passwordEl.textContent = password;
+
+        });
+
+        const copyBtn = document.querySelector('#passwd_sec button');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const pwd = document.getElementById('password').textContent;
+                if (!pwd) return;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(pwd).then(() => {
+                        const old = copyBtn.textContent;
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => copyBtn.textContent = old, 1200);
+                    }).catch(() => {});
+                } else {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = pwd;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    const old = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => copyBtn.textContent = old, 1200);
+                }
+            });
+        }
+
+        
+
+    </script>
+
+</body>
+</html>

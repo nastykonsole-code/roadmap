@@ -1,0 +1,137 @@
+/* Weather App — improved styles
+   - CSS variables for easy theming
+   - Responsive centered card layout
+   - Accessible color contrast and larger tap targets
+*/
+:root{
+  --bg:#f0f4f8;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#1e90ff;
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --radius:12px;
+  --max-width:420px;
+  --focus: 3px solid rgba(30,144,255,0.18);
+  --fw-heading:700;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg) 0%, #eaf2fb 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(16px,4vw,32px);
+}
+
+.weather-app{
+  width:100%;
+  max-width:var(--max-width);
+}
+
+.app-header{
+  text-align:center;
+  margin-bottom:16px;
+}
+.app-header h1{
+  margin:0;
+  font-size:1.25rem;
+  letter-spacing:0.2px;
+  font-weight:var(--fw-heading);
+}
+.app-header .subtitle{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+.weather-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+}
+
+.location{
+  font-weight:600;
+  color:#0b1220;
+  font-size:1rem;
+}
+
+.conditions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  justify-content:center;
+}
+.conditions .icon{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  filter: drop-shadow(0 6px 10px rgba(16,24,40,0.06));
+}
+.temp{
+  font-size:2rem;
+  font-weight:700;
+}
+.desc{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.details{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+  width:100%;
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+.details li{white-space:nowrap}
+
+.attribution{
+  text-align:center;
+  font-size:0.78rem;
+  color:var(--muted);
+  margin-top:8px;
+}
+
+/* small screens: make elements larger and more touch-friendly */
+@media (max-width:420px){
+  .temp{font-size:1.8rem}
+  .conditions .icon{width:56px;height:56px}
+  .weather-card{padding:16px}
+}
+
+/* focus styles for accessibility */
+button:focus, a:focus, .weather-card:focus{
+  outline:none;
+  box-shadow:var(--focus);
+  border-radius:var(--radius);
+}
+
+/* subtle loading animation (if icon not loaded) */
+.icon[alt=""]{
+  background:linear-gradient(90deg,#f3f4f6,#eef2ff,#f3f4f6);
+  border-radius:8px;
+  animation: shimmer 1.2s linear infinite;
+}
+@keyframes shimmer{
+  0%{background-position:-200px 0}
+  100%{background-position:200px 0}
+}

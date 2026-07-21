@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="weather-app">
+      <header class="app-header">
+        <h1>Weather</h1>
+        <p class="subtitle">Local conditions</p>
+      </header>
+      <section class="weather-card" aria-live="polite">
+        <div class="location">—</div>
+        <div class="conditions">
+          <img class="icon" src="" alt="" aria-hidden="true">
+          <div>
+            <div class="temp">—°</div>
+            <div class="desc">—</div>
+          </div>
+        </div>
+        <ul class="details">
+          <li>Humidity: <span class="humidity">—</span></li>
+          <li>Wind: <span class="wind">—</span></li>
+        </ul>
+      </section>
+      <footer class="attribution">Data from WeatherAPI & Geoapify</footer>
+    </main>
+    <script>
+      // Replace the API keys below with your own. Do NOT commit real keys to source control.
+        const GEOAPIFY_KEY = '20843e27164045c6a05a779327fb8983';
+        const WEATHERAPI_KEY = 'f64e168c03174f1bb2474923262107';
+        
+      function setText(selector, text) {
+        const el = document.querySelector(selector);
+        if (el) el.textContent = text;
+      }
+
+      function setAttr(selector, attr, value) {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute(attr, value);
+      }
+
+      fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${GEOAPIFY_KEY}`)
+        .then(response => response.json())
+        .then(location => {
+          const city = location.city && location.city.name ? location.city.name : (location.address && location.address.city ? location.address.city : (location.ip_city || 'Unknown'));
+          setText('.location', city);
+
+          return fetch(`https://api.weatherapi.com/v1/current.json?key=${WEATHERAPI_KEY}&q=${encodeURIComponent(city)}`);
+        })
+        .then(response => response.json())
+        .then(weather => {
+          if (weather && weather.current) {
+            setText('.temp', Math.round(weather.current.temp_c) + '°C');
+            setText('.desc', weather.current.condition && weather.current.condition.text ? weather.current.condition.text : '');
+            setText('.humidity', (weather.current.humidity || '—') + '%');
+            setText('.wind', (weather.current.wind_kph || '—') + ' kph');
+            const iconUrl = weather.current.condition && weather.current.condition.icon ? (weather.current.condition.icon.startsWith('http') ? weather.current.condition.icon : 'https:' + weather.current.condition.icon) : '';
+            if (iconUrl) {
+              setAttr('.icon', 'src', iconUrl);
+              setAttr('.icon', 'alt', weather.current.condition.text || 'Weather icon');
+            }
+          } else {
+            setText('.desc', 'Weather data unavailable');
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          setText('.desc', 'Unable to fetch weather');
+        });
+    </script>
+</body>
+</html>

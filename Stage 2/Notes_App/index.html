@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://kit.fontawesome.com/b160e75569.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <h1 class="app-title">Notes</h1>
+            <p class="app-desc">Quickly capture ideas, tasks, and reminders.</p>
+        </header>
+
+        <section id="note_creator" class="creator">
+            <label for="title_note" class="visually-hidden">Title</label>
+            <input class="input" id="title_note" type="text" placeholder="Title (optional)" aria-label="Note title">
+
+            <label for="text_note" class="visually-hidden">Note</label>
+            <textarea class="input" id="text_note" placeholder="Write your note here..." aria-label="Note content"></textarea>
+
+            <div class="actions">
+                <button id="create_note" type="button" aria-label="Create note"><i class="fa-solid fa-pencil"></i><span class="sr-only">Create</span></button>
+            </div>
+        </section>
+
+        <section id="note_list" aria-live="polite" class="note-list">
+            <!-- notes appear here -->
+        </section>
+    </div>
+
+    <script>
+
+        // Get the commands
+
+        const title_note = document.getElementById('title_note');
+        const text_note = document.getElementById('text_note');
+        const create_note = document.getElementById('create_note');
+
+        const note_list = document.getElementById('note_list');
+        let note_arr = [];
+
+
+        create_note.addEventListener("click", function() {
+            let title_for_note = title_note.value || "Untitled";
+            let text_for_note = text_note.value || "No content yet.";
+
+            
+            let div = document.createElement('div');
+            let title = document.createElement('input');
+            title.type = 'text';
+            title.value = title_for_note;
+            
+            let note = document.createElement('textarea');
+            note.value = text_for_note;
+            
+            let delete_button = document.createElement('button');
+            delete_button.innerHTML = `<i class="fa-regular fa-trash-can"></i>`
+            
+            delete_button.className = 'note-delete';
+
+
+            delete_button.addEventListener('click', function() {
+                if(!confirm('Delte Note?')) return;
+                div.remove();
+            }) 
+
+            div.appendChild(title);
+            div.appendChild(note);
+            
+            div.appendChild(delete_button);
+            
+            // note_arr.push({'title': String(title_for_note), 'note': String(text_for_note), 'id': note_arr.length + 'note'})
+
+
+            note_list.appendChild(div);
+            
+            // clear the inputs
+            title_note.value = '';
+            text_note.value = '';
+            title_note.focus(); // optional: put cursor back in the title field
+        });
+        
+       console.log(note_arr) 
+        
+    </script>
+
+</body>
+</html>
